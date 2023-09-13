@@ -5,16 +5,16 @@ require('toggleterm').setup({
   highlights = {
     -- highlights which map to a highlight group name and a table of it's values
     -- NOTE: this is only a subset of values, any group placed here will be set for the terminal window split
-    Normal = {
-      -- guibg = nil,
-    },
-    NormalFloat = {
-      link = 'Normal',
-    },
-    FloatBorder = {
-      guifg = nil,
-      guibg = nil,
-    },
+    -- Normal = {
+    --   guibg = '#000000',
+    -- },
+    -- NormalFloat = {
+    --   link = 'Normal',
+    -- },
+    -- FloatBorder = {
+    --   guifg = nil,
+    --   guibg = nil,
+    -- },
   },
   persist_size = true,
   persist_mode = true, -- if set to true (default) the previous terminal mode will be remembered

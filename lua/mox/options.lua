@@ -56,7 +56,17 @@ vim.cmd([[
   set background=dark
   colorscheme zenwritten
 
-  hi ColorColumn guibg=#000000
-  hi NeoTreeNormal guibg=#000000
-  hi NeoTreeNormalNC guibg=#000000
+  " Custom highlight fixes
+  hi ColorColumn guibg=#0b0b0b
+  hi NeoTreeNormal guibg=#0b0b0b
+  hi NeoTreeNormalNC guibg=#0b0b0b
+  hi ToggleTerm1Normal guibg=#0b0b0b guifg=#ffffff
+  hi NotifyERRORBorder guifg=#ffffff
+  hi NotifyWARNBorder guifg=#ffffff
+  hi NotifyINFOBorder guifg=#0b0b0b guibg=#0b0b0b
+  hi NotifyDEBUGBorder guifg=#ffffff
+  hi TelescopeNormal guibg=#0b0b0b
+  hi TelescopeBorder guibg=#0b0b0b guifg=#0b0b0b
 ]])
+
+vim.notify = require('notify')

@@ -93,6 +93,7 @@ return require('packer').startup(function()
       'MunifTanjim/nui.nvim',
     },
   })
+  use('rcarriga/nvim-notify')
 
   --LSP
   use({
