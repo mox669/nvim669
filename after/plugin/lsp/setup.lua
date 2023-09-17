@@ -38,6 +38,8 @@ require('mason-lspconfig').setup({
   -- configure, which server should be ensured to be installed
   ensure_installed = {
     'lua_ls',
+    'clangd',
+    'tsserver',
   },
 })
 
@@ -77,5 +79,8 @@ require('mason-lspconfig').setup_handlers({
   end,
   ['clangd'] = function()
     lspconfig.clangd.setup({})
+  end,
+  ['tsserver'] = function()
+    lspconfig.tsserver.setup({})
   end,
 })
