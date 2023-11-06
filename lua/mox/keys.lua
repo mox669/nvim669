@@ -70,3 +70,25 @@ map(
 map('n', '<Leader>h', ':TroubleToggle<CR>', { noremap = true, silent = true })
 -- Undotree
 map('n', '<Leader>u', ':UndotreeToggle<CR>', { noremap = true, silent = true })
+-- Neorg
+map(
+  'n',
+  '<Leader>nw',
+  ':Neorg workspace work<CR>:Neorg index<CR>',
+  { noremap = true, silent = true }
+)
+map(
+  'n',
+  '<Leader>nh',
+  ':Neorg workspace home<CR>:Neorg index<CR>',
+  { noremap = true, silent = true }
+)
+map('n', '<Leader>nc', ':Neorg return<CR>', { noremap = true, silent = true })
+map('n', '<Leader>gg', ':LazyGit<CR>', { noremap = true, silent = true })
+map('n', '<Leader>z', ':ZenMode<CR>', { noremap = true, silent = true })
+map(
+  'n',
+  '<Leader>tr',
+  ':TransparentToggle<CR>',
+  { noremap = true, silent = true }
+)

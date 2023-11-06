@@ -29,12 +29,13 @@ local options = {
   cursorline = true, -- highlight the current line
   number = true, -- set numbered lines
   relativenumber = true, -- set relative numbered lines
-  numberwidth = 2, -- set number column width to 2 (default 4)
-  signcolumn = 'yes:2', -- always show the sign column, width=1
+  numberwidth = 1, -- set number column width to 2 (default 4)
+  signcolumn = 'yes:3', -- always show the sign column, width=1
   colorcolumn = '80', --sets a vertical color column at width=80
   wrap = false, -- toggle word wrap
   scrolloff = 999,
   spell = false, -- toggle spell checking
+  syntax = 'yes',
 }
 
 vim.opt.shortmess:append('c')
@@ -53,20 +54,8 @@ vim.cmd([[
   set wildignore+=**/node_modules/*
   set whichwrap+=<,>,[,],h,l
 
-  set background=dark
-  colorscheme zenwritten
-
-  " Custom highlight fixes
-  hi ColorColumn guibg=#0b0b0b
-  hi NeoTreeNormal guibg=#0b0b0b
-  hi NeoTreeNormalNC guibg=#0b0b0b
-  hi ToggleTerm1Normal guibg=#0b0b0b guifg=#ffffff
-  hi NotifyERRORBorder guifg=#ffffff
-  hi NotifyWARNBorder guifg=#ffffff
-  hi NotifyINFOBorder guifg=#0b0b0b guibg=#0b0b0b
-  hi NotifyDEBUGBorder guifg=#ffffff
-  hi TelescopeNormal guibg=#0b0b0b
-  hi TelescopeBorder guibg=#0b0b0b guifg=#0b0b0b
+  let g:vimtex_view_method = 'zathura'
+  let maplocalleader = ' '
 ]])
 
 vim.notify = require('notify')

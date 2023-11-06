@@ -1,13 +1,13 @@
 require('toggleterm').setup({
-  open_mapping = [[<Leader>t]],
+  open_mapping = [[<Leader>tt]],
   insert_mappings = true,
   terminal_mappings = true,
   highlights = {
     -- highlights which map to a highlight group name and a table of it's values
     -- NOTE: this is only a subset of values, any group placed here will be set for the terminal window split
-    -- Normal = {
-    --   guibg = '#000000',
-    -- },
+    Normal = {
+      guibg = '#000000',
+    },
     -- NormalFloat = {
     --   link = 'Normal',
     -- },

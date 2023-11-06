@@ -10,6 +10,9 @@ require('formatter').setup({
     c = {
       require('formatter.filetypes.c').clangformat,
     },
+    cpp = {
+      require('formatter.filetypes.cpp').clangformat,
+    },
     javascript = {
       require('formatter.filetypes.javascript').prettier,
     },
@@ -19,12 +22,8 @@ require('formatter').setup({
     html = {
       require('formatter.filetypes.html').prettier,
     },
-    scss = {
-        function ()
-            return {
-                exe = "prettier"
-            }
-        end
+    python = {
+      require('formatter.filetypes.python').autopep8,
     },
     ['*'] = {
       require('formatter.filetypes.any').remove_trailing_whitespace,

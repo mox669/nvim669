@@ -39,7 +39,7 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     'lua_ls',
     'clangd',
-    'tsserver',
+    --'typescript-language-server',
   },
 })
 
@@ -82,5 +82,11 @@ require('mason-lspconfig').setup_handlers({
   end,
   ['tsserver'] = function()
     lspconfig.tsserver.setup({})
+  end,
+  ['texlab'] = function()
+    lspconfig.texlab.setup({})
+  end,
+  ['pyright'] = function()
+    lspconfig.pyright.setup({})
   end,
 })

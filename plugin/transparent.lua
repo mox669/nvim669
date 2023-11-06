@@ -1,3 +1,8 @@
 require('transparent').setup({
-  --extra_groups = { 'ToggleTerm1Normal' },
+  exclude_groups = {
+    'ToggleTerm1Normal',
+    'SignColumn',
+    'LineNr',
+    'CursorLineNr',
+  },
 })

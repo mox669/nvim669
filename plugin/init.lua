@@ -36,17 +36,18 @@ return require('packer').startup(function()
     'olekatpyle/tmuxline.vim',
     branch = 'custom-seperator',
   })
-  use({
-    'mcchrish/zenbones.nvim',
-    requires = 'rktjmp/lush.nvim',
-  })
-  use("nvim-tree/nvim-web-devicons")
+  use('nvim-tree/nvim-web-devicons')
   use({
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
   })
   use({ 'lewis6991/gitsigns.nvim' })
   use('xiyaowong/transparent.nvim')
+  use('lukas-reineke/indent-blankline.nvim')
+  -- colorschemes
+  use('olekatpyle/mellow.nvim')
+  use({ 'zootedb0t/citruszest.nvim' })
+  use({ 'jaredgorski/fogbell.vim' })
 
   --UTILITY
   use({
@@ -95,6 +96,40 @@ return require('packer').startup(function()
     },
   })
   use('rcarriga/nvim-notify')
+  use({
+    'nvim-neorg/neorg',
+    config = function()
+      require('neorg').setup({
+        load = {
+          ['core.defaults'] = {}, -- Loads default behaviour
+          ['core.concealer'] = {
+            config = {
+              icons = {
+                code_block = {
+                  conceal = true,
+                  content_only = false,
+                },
+              },
+            },
+          }, -- Adds pretty icons to your documents
+          ['core.dirman'] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                work = '~/.local/docs/9e',
+                home = '~/.local/docs/home',
+              },
+            },
+          },
+        },
+      })
+    end,
+    run = ':Neorg sync-parsers',
+    requires = 'nvim-lua/plenary.nvim',
+  })
+  use('davidgranstrom/nvim-markdown-preview')
+  use('lervag/vimtex')
+  use('kdheepak/lazygit.nvim')
+  use('folke/zen-mode.nvim')
 
   --LSP
   use({
