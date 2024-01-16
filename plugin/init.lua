@@ -116,7 +116,7 @@ return require('packer').startup(function()
             config = {
               workspaces = {
                 work = '~/.local/docs/9e',
-                home = '~/.local/docs/home',
+                home = '~/.local/docs/private',
               },
             },
           },
@@ -130,6 +130,21 @@ return require('packer').startup(function()
   use('lervag/vimtex')
   use('kdheepak/lazygit.nvim')
   use('folke/zen-mode.nvim')
+  use('chentoast/marks.nvim')
+  use({
+    'github/copilot.vim',
+    lazy = false,
+    config = function()
+      vim.g.copilot_no_tab_map = true
+      vim.g.copilot_assume_mapped = true
+      vim.g.copilot_tab_fallback = ''
+    end,
+  })
+  use({
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    requires = { { 'nvim-lua/plenary.nvim' } },
+  })
 
   --LSP
   use({
@@ -146,6 +161,13 @@ return require('packer').startup(function()
   use('L3MON4D3/LuaSnip')
   use('rafamadriz/friendly-snippets')
   use('saadparwaiz1/cmp_luasnip')
+  use('p00f/clangd_extensions.nvim')
+  use({
+    'ray-x/go.nvim',
+    config = function()
+      require('go').setup()
+    end,
+  })
 
   if packer_bootstrap then
     require('packer').sync()

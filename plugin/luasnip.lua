@@ -47,7 +47,7 @@ local f = ls.function_node
 ls.add_snippets('all', {
   s(
     'todo',
-    fmt([[{} {}: {}]], {
+    fmt([[{} {} olekatpyle: {}]], {
       c(1, {
         t('TODO '),
         t('FIXME '),
@@ -55,9 +55,18 @@ ls.add_snippets('all', {
         t('NOTE '),
       }),
       f(function()
-        return os.date('%D - %H:%M')
+        return os.date('%D-%H:%M')
       end),
       i(2, 'message'),
+    })
+  ),
+})
+
+ls.add_snippets('cpp', {
+  s(
+    'bmclog',
+    fmt([[/*BMCLOG*/ BMCWEB_LOG_DEBUG({});]], {
+      i(0, 'msg'),
     })
   ),
 })

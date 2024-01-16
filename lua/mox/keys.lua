@@ -49,7 +49,7 @@ map(
 map(
   'n',
   '<Leader>pf',
-  ':lua require("telescope.builtin").find_files()<CR>',
+  ':lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))<CR>',
   { noremap = true, silent = true }
 )
 
@@ -92,3 +92,12 @@ map(
   ':TransparentToggle<CR>',
   { noremap = true, silent = true }
 )
+
+-- Lsp diagnostics
+vim.keymap.set('n', '<space>di', vim.diagnostic.open_float)
+
+-- Copilot remap
+vim.keymap.set('i', '<M-;>', 'copilot#Accept("")', {
+  silent = true,
+  expr = true,
+})

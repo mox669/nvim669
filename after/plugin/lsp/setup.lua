@@ -78,7 +78,12 @@ require('mason-lspconfig').setup_handlers({
     })
   end,
   ['clangd'] = function()
-    lspconfig.clangd.setup({})
+    lspconfig.clangd.setup({
+      cmd = {
+        'clangd',
+        '--offset-encoding=utf-8',
+      },
+    })
   end,
   ['tsserver'] = function()
     lspconfig.tsserver.setup({})
@@ -88,5 +93,21 @@ require('mason-lspconfig').setup_handlers({
   end,
   ['pyright'] = function()
     lspconfig.pyright.setup({})
+  end,
+  ['jdtls'] = function()
+    lspconfig.jdtls.setup({})
+  end,
+  ['yamlls'] = function()
+    lspconfig.yamlls.setup({
+      format = {
+        enable = true,
+      },
+    })
+  end,
+  ['gopls'] = function()
+    lspconfig.gopls.setup({})
+  end,
+  ['bashls'] = function()
+    lspconfig.bashls.setup({})
   end,
 })

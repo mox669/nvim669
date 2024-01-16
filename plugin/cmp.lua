@@ -112,6 +112,15 @@ cmp.setup({
       'i',
       's',
     }),
+    ['<M-;>'] = cmp.mapping(function()
+      vim.api.nvim_feedkeys(
+        vim.fn['copilot#Accept'](
+          vim.api.nvim_replace_termcodes('<Tab>', true, true, true)
+        ),
+        'n',
+        true
+      )
+    end),
   },
   formatting = {
     fields = { 'kind', 'abbr', 'menu' },
@@ -129,6 +138,18 @@ cmp.setup({
       })[entry.source.name]
       return vim_item
     end,
+  },
+  sorting = {
+    comparators = {
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.recently_used,
+      require('clangd_extensions.cmp_scores'),
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
   },
   sources = {
     { name = 'nvim_lsp' },

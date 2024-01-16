@@ -1,11 +1,11 @@
 require('notify').setup({
   level = vim.log.levels.INFO,
-  timeout = 5000,
+  timeout = 15000,
   max_width = 80,
   max_height = nil,
   stages = 'fade',
   render = 'wrapped-compact',
-  background_colour = '#0b0b0b',
+  -- background_colour = '#0b0b0b',
   on_open = nil,
   on_close = nil,
   minimum_width = 50,
