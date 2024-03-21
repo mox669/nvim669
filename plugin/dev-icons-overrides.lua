@@ -1,4 +1,5 @@
 require('nvim-web-devicons').setup({
+  color_icons = false,
   strinct = true,
   override_by_extension = {
     norg = {

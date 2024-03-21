@@ -44,6 +44,15 @@ local t = ls.text_node
 local c = ls.choice_node
 local f = ls.function_node
 
+ls.add_snippets('lua', {
+  s(
+    'use',
+    fmt([[use({{'{}'}})]], {
+      i(0, 'plugin'),
+    })
+  ),
+})
+
 ls.add_snippets('all', {
   s(
     'todo',
@@ -65,7 +74,7 @@ ls.add_snippets('all', {
 ls.add_snippets('cpp', {
   s(
     'bmclog',
-    fmt([[/*BMCLOG*/ BMCWEB_LOG_DEBUG({});]], {
+    fmt([[/*bmclog*/ bmcweb_log_debug({});]], {
       i(0, 'msg'),
     })
   ),

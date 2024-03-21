@@ -1,10 +1,15 @@
-local t = require('transparent')
-t.setup({
+require('transparent').setup({
   exclude_groups = {
-    'ToggleTerm1Normal',
     'SignColumn',
     'LineNr',
     'CursorLineNr',
-    'NvimTree',
+    'CursorLine',
   },
 })
+
+vim.keymap.set(
+  'n',
+  '<Leader>tr',
+  ':TransparentToggle<CR>',
+  { noremap = true, silent = true }
+)

@@ -1,6 +1,6 @@
 require('notify').setup({
   level = vim.log.levels.INFO,
-  timeout = 15000,
+  timeout = 1000,
   max_width = 80,
   max_height = nil,
   stages = 'fade',

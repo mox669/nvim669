@@ -31,9 +31,10 @@ vim.cmd([[
 return require('packer').startup(function()
   use('wbthomason/packer.nvim')
 
+  -----
   -- UI
   use({
-    'olekatpyle/tmuxline.vim',
+    'mox669/tmuxline.vim',
     branch = 'custom-seperator',
   })
   use('nvim-tree/nvim-web-devicons')
@@ -41,18 +42,23 @@ return require('packer').startup(function()
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
   })
-  use({ 'lewis6991/gitsigns.nvim' })
   use('xiyaowong/transparent.nvim')
   use('lukas-reineke/indent-blankline.nvim')
-  -- colorschemes
-  use('olekatpyle/mellow.nvim')
-  use({ 'zootedb0t/citruszest.nvim' })
-  use({ 'jaredgorski/fogbell.vim' })
+  use({
+    'j-hui/fidget.nvim',
+    config = function()
+      require('fidget').setup()
+    end,
+  })
 
-  --UTILITY
+  -- colorschemes
+  -- use({ 'mox669/fogbell.vim', branch = 'mox' })
+  use({ 'Biscuit-Colorscheme/nvim', branch = 'main' })
+
+  ----------
+  -- UTILITY
   use({
     'nvim-treesitter/nvim-treesitter',
-    -- run = ':TSUpdate',
   })
   use({ 'ojroques/nvim-bufdel' })
   use({
@@ -73,17 +79,6 @@ return require('packer').startup(function()
     tag = '0.1.2',
     requires = { { 'nvim-lua/plenary.nvim' } },
   })
-  use({
-    'akinsho/toggleterm.nvim',
-    tag = '*',
-  })
-  use({
-    'folke/trouble.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opts = true },
-    opts = {
-      icons = false,
-    },
-  })
   use('mbbill/undotree')
 
   use({
@@ -91,7 +86,7 @@ return require('packer').startup(function()
     branch = 'v3.x',
     requires = {
       'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'nvim-tree/nvim-web-devicons',
       'MunifTanjim/nui.nvim',
     },
   })
@@ -101,7 +96,7 @@ return require('packer').startup(function()
     config = function()
       require('neorg').setup({
         load = {
-          ['core.defaults'] = {}, -- Loads default behaviour
+          ['core.defaults'] = {},
           ['core.concealer'] = {
             config = {
               icons = {
@@ -111,8 +106,8 @@ return require('packer').startup(function()
                 },
               },
             },
-          }, -- Adds pretty icons to your documents
-          ['core.dirman'] = { -- Manages Neorg workspaces
+          },
+          ['core.dirman'] = {
             config = {
               workspaces = {
                 work = '~/.local/docs/9e',
@@ -122,15 +117,29 @@ return require('packer').startup(function()
           },
         },
       })
+      vim.keymap.set(
+        'n',
+        '<Leader>nw',
+        ':Neorg workspace work<CR>:Neorg index<CR>',
+        { noremap = true, silent = true }
+      )
+      vim.keymap.set(
+        'n',
+        '<Leader>nh',
+        ':Neorg workspace home<CR>:Neorg index<CR>',
+        { noremap = true, silent = true }
+      )
+      vim.keymap.set(
+        'n',
+        '<Leader>nc',
+        ':Neorg return<CR>',
+        { noremap = true, silent = true }
+      )
     end,
     run = ':Neorg sync-parsers',
     requires = 'nvim-lua/plenary.nvim',
-  })
+  }) -- end neorg
   use('davidgranstrom/nvim-markdown-preview')
-  use('lervag/vimtex')
-  use('kdheepak/lazygit.nvim')
-  use('folke/zen-mode.nvim')
-  use('chentoast/marks.nvim')
   use({
     'github/copilot.vim',
     lazy = false,
@@ -138,25 +147,52 @@ return require('packer').startup(function()
       vim.g.copilot_no_tab_map = true
       vim.g.copilot_assume_mapped = true
       vim.g.copilot_tab_fallback = ''
+
+      -- remap suggestion accept
+      vim.keymap.set('i', '<M-;>', 'copilot#Accept("")', {
+        silent = true,
+        expr = true,
+      })
     end,
   })
   use({
-    'ThePrimeagen/harpoon',
-    branch = 'harpoon2',
-    requires = { { 'nvim-lua/plenary.nvim' } },
+    'stevearc/oil.nvim',
+    config = function()
+      require('oil').setup({
+        default_file_explorer = false,
+      })
+
+      vim.keymap.set(
+        'n',
+        '-',
+        '<CMD>Oil<CR>',
+        { desc = 'Open parent directory' }
+      )
+      -- vim.keymap.set('n', '-', ':Oil --float <CR>', {
+      --   silent = true,
+      --   expr = true,
+      -- })
+    end,
   })
 
-  --LSP
+  ------
+  -- GIT
+  use('kdheepak/lazygit.nvim')
+  use({ 'lewis6991/gitsigns.nvim' })
+  use({ 'tpope/vim-fugitive' })
+
+  ------
+  -- LSP
   use({
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
   })
-  use('hrsh7th/nvim-cmp') -- Autocompletion plugin
+  use('hrsh7th/nvim-cmp')
   use('hrsh7th/cmp-buffer')
   use('hrsh7th/cmp-path')
   use('hrsh7th/cmp-nvim-lua')
-  use('hrsh7th/cmp-nvim-lsp') -- LSP source for nvim-cmp
+  use('hrsh7th/cmp-nvim-lsp')
   use('hrsh7th/cmp-cmdline')
   use('L3MON4D3/LuaSnip')
   use('rafamadriz/friendly-snippets')

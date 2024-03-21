@@ -20,7 +20,7 @@ telescope.setup({
       find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
     },
     grep_string = {
-      theme = 'cursor',
+      -- theme = 'cursor',
     },
   },
   extensions = {
@@ -33,3 +33,32 @@ telescope.setup({
 })
 
 require('telescope').load_extension('notify')
+
+-- Key mappings
+vim.keymap.set(
+  'n',
+  '<Leader>ps',
+  ':lua require("telescope.builtin").live_grep({prompt_title = "Live grep"}, require("telescope.themes").get_dropdown({}))<CR>',
+  { noremap = true, silent = true }
+)
+
+vim.keymap.set(
+  'n',
+  '<Leader>pf',
+  ':lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))<CR>',
+  { noremap = true, silent = true }
+)
+
+vim.keymap.set(
+  'n',
+  '<Leader>ph',
+  ':lua require("telescope.builtin").help_tags()<CR>',
+  { noremap = true, silent = true }
+)
+
+vim.keymap.set(
+  'n',
+  '<Leader>pm',
+  ':lua require("telescope.builtin").man_pages()<CR>',
+  { noremap = true, silent = true }
+)

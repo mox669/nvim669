@@ -1,11 +1,11 @@
--- Setup your key mappings inside this file
-
--- wrapper function
-function map(mode, lhs, rhs, opts)
+---------------
+-- Key mappings
+---------------
+local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
--- Leader
+-- Leader (unmap space and remap it to vim leader key
 map('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
 
@@ -34,70 +34,3 @@ map('i', 'JK', '<ESC>', { noremap = true, silent = true })
 -- Tab switch buffer
 map('n', '<TAB>', ':bnext<CR>', { noremap = true, silent = true })
 map('n', '<S-TAB>', ':bprevious<CR>', { noremap = true, silent = true })
-
--- NeoTree explorer
-map('n', '<Leader>e', ':Neotree toggle<CR>', { noremap = true, silent = true })
-
--- Telescope
-map(
-  'n',
-  '<Leader>ps',
-  ':lua require("telescope.builtin").grep_string({prompt_title = "Find string", grep_open_files = true})<CR>',
-  { noremap = true, silent = true }
-)
-
-map(
-  'n',
-  '<Leader>pf',
-  ':lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))<CR>',
-  { noremap = true, silent = true }
-)
-
-map(
-  'n',
-  '<Leader>ph',
-  ':lua require("telescope.builtin").help_tags()<CR>',
-  { noremap = true, silent = true }
-)
-map(
-  'n',
-  '<Leader>pm',
-  ':lua require("telescope.builtin").man_pages()<CR>',
-  { noremap = true, silent = true }
-)
-
--- Trouble
-map('n', '<Leader>h', ':TroubleToggle<CR>', { noremap = true, silent = true })
--- Undotree
-map('n', '<Leader>u', ':UndotreeToggle<CR>', { noremap = true, silent = true })
--- Neorg
-map(
-  'n',
-  '<Leader>nw',
-  ':Neorg workspace work<CR>:Neorg index<CR>',
-  { noremap = true, silent = true }
-)
-map(
-  'n',
-  '<Leader>nh',
-  ':Neorg workspace home<CR>:Neorg index<CR>',
-  { noremap = true, silent = true }
-)
-map('n', '<Leader>nc', ':Neorg return<CR>', { noremap = true, silent = true })
-map('n', '<Leader>gg', ':LazyGit<CR>', { noremap = true, silent = true })
-map('n', '<Leader>z', ':ZenMode<CR>', { noremap = true, silent = true })
-map(
-  'n',
-  '<Leader>tr',
-  ':TransparentToggle<CR>',
-  { noremap = true, silent = true }
-)
-
--- Lsp diagnostics
-vim.keymap.set('n', '<space>di', vim.diagnostic.open_float)
-
--- Copilot remap
-vim.keymap.set('i', '<M-;>', 'copilot#Accept("")', {
-  silent = true,
-  expr = true,
-})

@@ -10,3 +10,10 @@ vim.cmd([[
     " OR
     let g:lazygit_config_file_path = [] " list of custom config file paths
 ]])
+
+vim.keymap.set(
+  'n',
+  '<Leader>gg',
+  ':LazyGit<CR>',
+  { noremap = true, silent = true }
+)

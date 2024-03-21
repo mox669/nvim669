@@ -30,7 +30,7 @@ local options = {
   number = true, -- set numbered lines
   relativenumber = true, -- set relative numbered lines
   numberwidth = 1, -- set number column width to 2 (default 4)
-  signcolumn = 'yes:3', -- always show the sign column, width=1
+  signcolumn = 'yes:2', -- always show the sign column, width=1
   colorcolumn = '80', --sets a vertical color column at width=80
   wrap = false, -- toggle word wrap
   scrolloff = 999,
@@ -55,7 +55,6 @@ vim.cmd([[
   set whichwrap+=<,>,[,],h,l
 
   let g:vimtex_view_method = 'zathura'
-  let maplocalleader = ' '
 ]])
 
 vim.notify = require('notify')

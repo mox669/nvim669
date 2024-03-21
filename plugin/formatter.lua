@@ -7,12 +7,12 @@ require('formatter').setup({
     lua = {
       require('formatter.filetypes.lua').stylua,
     },
-    c = {
-      require('formatter.filetypes.c').clangformat,
-    },
-    cpp = {
-      require('formatter.filetypes.cpp').clangformat,
-    },
+    -- c = {
+    --   require('formatter.filetypes.c').clangformat,
+    -- },
+    -- cpp = {
+    --   require('formatter.filetypes.cpp').clangformat,
+    -- },
     javascript = {
       require('formatter.filetypes.javascript').prettier,
     },

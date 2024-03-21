@@ -1,7 +1,8 @@
 require('lualine').setup({
   options = {
     icons_enabled = true,
-    theme = 'neo_violet',
+    -- theme = 'neo_violet',
+    theme = 'auto',
     component_separators = { left = ' ', right = ' ' },
     section_separators = { left = ' ', right = ' ' },
     disabled_filetypes = {
@@ -35,12 +36,16 @@ require('lualine').setup({
     lualine_z = {},
   },
   tabline = {
-    lualine_a = { 'buffers' },
+    lualine_a = { 'filename' },
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {},
+    lualine_z = {
+      function()
+        return vim.fn.getcwd()
+      end,
+    },
   },
   winbar = {},
   inactive_winbar = {},
