@@ -39,7 +39,11 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     'lua_ls',
     'clangd',
-    --'typescript-language-server',
+    'bashls',
+    'yamlls',
+    'gopls',
+    'rust_analyzer',
+    'taplo',
   },
 })
 
@@ -85,18 +89,6 @@ require('mason-lspconfig').setup_handlers({
       },
     })
   end,
-  ['tsserver'] = function()
-    lspconfig.tsserver.setup({})
-  end,
-  ['texlab'] = function()
-    lspconfig.texlab.setup({})
-  end,
-  ['pyright'] = function()
-    lspconfig.pyright.setup({})
-  end,
-  ['jdtls'] = function()
-    lspconfig.jdtls.setup({})
-  end,
   ['yamlls'] = function()
     lspconfig.yamlls.setup({
       format = {
@@ -109,5 +101,19 @@ require('mason-lspconfig').setup_handlers({
   end,
   ['bashls'] = function()
     lspconfig.bashls.setup({})
+  end,
+  ['taplo'] = function()
+    lspconfig.taplo.setup({})
+  end,
+  ['matlab_ls'] = function()
+    lspconfig.matlab_ls.setup({
+      root_dir = function()
+        return '/home/mox/.local/dev/mdtg/matlab'
+      end,
+      MATLAB = {
+        installPath = '/home/mox/.local/share/matlab/bin',
+        telemetry = false,
+      },
+    })
   end,
 })

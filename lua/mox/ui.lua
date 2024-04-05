@@ -39,10 +39,13 @@
 
 vim.cmd([[
   function! Highlights() abort
-      highlight NeoTreeNormal guibg=#0b0b0b
-      highlight NeoTreeNormalNC guibg=#0b0b0b
-      highlight NeoTreeWinSeparator guibg=#0b0b0b guifg=#0b0b0b
-      highlight ToggleTerm1Normal guibg=#000000 guifg=#ffffff
+      highlight DiagnosticSignError        guibg=#181818 guifg=#e5412b
+      highlight DiagnosticVirtualTextError               guifg=#f92307 gui=bold
+      highlight DiagnosticSignWarn         guibg=#181818 guifg=#e59347
+      highlight DiagnosticVirtualTextWarn                guifg=#fc851e gui=bold
+      highlight DiagnosticSignInfo         guibg=#181818
+      highlight DiagnosticSignHint         guibg=#181818
+      highlight NotifyBackground           guibg=#0b0b0b
   endfunction
 
   augroup MoxHigh
@@ -52,3 +55,20 @@ vim.cmd([[
   set background=dark
   colorscheme biscuit
 ]])
+
+vim.fn.sign_define(
+  'DiagnosticSignError',
+  { text = ' ', texthl = 'DiagnosticSignError' }
+)
+vim.fn.sign_define(
+  'DiagnosticSignWarn',
+  { text = ' ', texthl = 'DiagnosticSignWarn' }
+)
+vim.fn.sign_define(
+  'DiagnosticSignInfo',
+  { text = ' ', texthl = 'DiagnosticSignInfo' }
+)
+vim.fn.sign_define(
+  'DiagnosticSignHint',
+  { text = '󰌵', texthl = 'DiagnosticSignHint' }
+)

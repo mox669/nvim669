@@ -25,7 +25,6 @@ return function(client, bufnr)
     require('clangd_extensions.inlay_hints').setup_autocmd()
     require('clangd_extensions.inlay_hints').set_inlay_hints()
   end
-  require('lsp-format').on_attach(client)
   if client.config.flags then
     client.config.flags.allow_incremental_sync = true
   end
