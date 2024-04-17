@@ -105,6 +105,9 @@ require('mason-lspconfig').setup_handlers({
   ['taplo'] = function()
     lspconfig.taplo.setup({})
   end,
+  ['tsserver'] = function()
+    lspconfig.tsserver.setup({})
+  end,
   ['matlab_ls'] = function()
     lspconfig.matlab_ls.setup({
       root_dir = function()
@@ -115,5 +118,8 @@ require('mason-lspconfig').setup_handlers({
         telemetry = false,
       },
     })
+  end,
+  ['texlab'] = function()
+    lspconfig.texlab.setup({})
   end,
 })

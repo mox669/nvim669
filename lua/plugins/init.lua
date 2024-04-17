@@ -81,7 +81,7 @@ return {
     lazy = false,
     keys = {
       { '<Leader>tt', '<CMD>VimuxOpenRunner<CR>' },
-      { '<Leader>vp', '<CMD>VimuxOpenCommandPrompt<CR>' },
+      { '<Leader>vp', '<CMD>VimuxPromptCommand<CR>' },
     },
   },
   {
@@ -94,6 +94,20 @@ return {
         { desc = 'Open / close tagbar (ctags)' }
       )
     end,
+  },
+  {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require('harpoon').setup()
+    end,
+  },
+  {
+    'donRaphaco/neotex',
+    file = { 'tex' },
   },
 
   ------

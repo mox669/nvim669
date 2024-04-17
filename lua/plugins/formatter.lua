@@ -22,10 +22,10 @@ return {
             require('formatter.filetypes.cpp').clangformat,
           },
           javascript = {
-            require('formatter.filetypes.javascript').prettier,
+            require('formatter.filetypes.javascript').biome,
           },
           typescript = {
-            require('formatter.filetypes.typescript').prettier,
+            require('formatter.filetypes.typescript').biome,
           },
           yaml = {
             require('formatter.filetypes.yaml').yamlls,
@@ -39,6 +39,9 @@ return {
           -- go = {
           --   require('formatter.filetypes.go').gofmt,
           -- },
+          tex = {
+            require('formatter.filetypes.tex').latexindent,
+          },
           ['*'] = {
             require('formatter.filetypes.any').remove_trailing_whitespace,
           },

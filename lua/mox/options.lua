@@ -43,7 +43,7 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.o.ls = 1 --line height of last status
+vim.o.ls = 2 --line height of last status
 vim.o.ch = 1 -- line height of cmd
 
 -- Some vim options haven't been ported to nvim but still can be set via [vim.cmd]
@@ -55,6 +55,8 @@ vim.cmd([[
   set whichwrap+=<,>,[,],h,l
 
   let g:vimtex_view_method = 'zathura'
+  " needs to be set, to prevent neovim setting .tex filetype to plaintex
+  let g:tex_flavor = "latex"
 ]])
 
 vim.notify = require('notify')
