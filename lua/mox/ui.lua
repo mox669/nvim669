@@ -39,13 +39,14 @@
 
 vim.cmd([[
   function! Highlights() abort
-      highlight DiagnosticSignError        guibg=#181818 guifg=#e5412b
-      highlight DiagnosticVirtualTextError               guifg=#f92307 gui=bold
-      highlight DiagnosticSignWarn         guibg=#181818 guifg=#e59347
-      highlight DiagnosticVirtualTextWarn                guifg=#fc851e gui=bold
-      highlight DiagnosticSignInfo         guibg=#181818
-      highlight DiagnosticSignHint         guibg=#181818
-      highlight NotifyBackground           guibg=#0b0b0b
+      highlight DiagnosticSignError                    guibg=#181818 guifg=#e5412b
+      highlight DiagnosticVirtualTextError                           guifg=#f92307 gui=bold
+      highlight DiagnosticSignWarn                     guibg=#181818 guifg=#e59347
+      highlight DiagnosticVirtualTextWarn                            guifg=#fc851e gui=bold
+      highlight DiagnosticSignInfo                     guibg=#181818
+      highlight DiagnosticSignHint                     guibg=#181818
+      highlight NotifyBackground                       guibg=#0b0b0b
+      highlight @neorg.tags.ranged_verbatim.code_block guibg=#202020
   endfunction
 
   augroup MoxHigh
