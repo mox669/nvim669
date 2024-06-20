@@ -59,7 +59,7 @@ return {
     ls.add_snippets('all', {
       s(
         'todo',
-        fmt([[{} {} olekatpyle: {}]], {
+        fmt([[{} {} mox669: {}]], {
           c(1, {
             t('TODO '),
             t('FIXME '),
