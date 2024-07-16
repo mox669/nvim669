@@ -17,7 +17,7 @@ local function create_capabilities()
       'additionalTextEdits',
     }
   )
-  return cmp_lsp.update_capabilities(capabilities)
+  return cmp_lsp.default_capabilities(capabilities)
 end
 
 util.on_setup = util.add_hook_after(util.on_setup, function(config)
