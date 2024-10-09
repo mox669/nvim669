@@ -1,5 +1,5 @@
 --------
--- gitsigns configuration
+-- formatter configuration
 -- Source: https://github.com/mhartington/formatter.nvim
 --------
 
@@ -15,14 +15,17 @@ return {
           lua = {
             require('formatter.filetypes.lua').stylua,
           },
-          c = {
-            require('formatter.filetypes.c').clangformat,
-          },
+          -- c = {
+          --   require('formatter.filetypes.c').clangformat,
+          -- },
           cpp = {
             require('formatter.filetypes.cpp').clangformat,
           },
           javascript = {
             require('formatter.filetypes.javascript').biome,
+          },
+          rust = {
+            require('formatter.filetypes.rust').rustfmt,
           },
           typescript = {
             require('formatter.filetypes.typescript').biome,

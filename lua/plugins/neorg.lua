@@ -1,3 +1,8 @@
+--------
+-- Neorg configuration
+-- Source: https://github.com/nvim-neorg/neorg
+--------
+
 return {
   'nvim-neorg/neorg',
   dependencies = { 'luarocks.nvim' },
@@ -23,6 +28,7 @@ return {
         },
         ['core.concealer'] = {
           config = {
+            folds = true,
             icons = {
               code_block = {
                 conceal = true,
@@ -30,6 +36,9 @@ return {
               },
             },
           },
+        },
+        ['core.esupports.metagen'] = {
+          config = { update_date = false },
         },
       },
     })

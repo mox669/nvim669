@@ -1,3 +1,8 @@
+--------
+-- rustaceanvim configuration
+-- Source: https://github.com/mrcjkb/rustaceanvim
+--------
+
 return {
   'mrcjkb/rustaceanvim',
   config = function()

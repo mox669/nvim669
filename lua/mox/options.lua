@@ -12,7 +12,7 @@ local options = {
   mouse = 'a', -- allow the mouse to be used in nvim
   pumheight = 10, -- pop up menu height
   showmode = true, -- display current mode
-  showtabline = 2, -- always show tabs
+  showtabline = 3, -- always show tabs
   smartcase = true, -- smart case
   smartindent = true, -- make indenting smart again
   splitbelow = false, -- force all horizontal splits to go up current window
@@ -30,7 +30,7 @@ local options = {
   number = true, -- set numbered lines
   relativenumber = true, -- set relative numbered lines
   numberwidth = 1, -- set number column width to 2 (default 4)
-  signcolumn = 'yes:2', -- always show the sign column, width=1
+  signcolumn = 'yes:3', -- always show the sign column, width=1
   colorcolumn = '80', --sets a vertical color column at width=80
   wrap = false, -- toggle word wrap
   scrolloff = 999,
@@ -43,7 +43,7 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.o.ls = 2 --line height of last status
+vim.o.ls = 1 --line height of last status
 vim.o.ch = 1 -- line height of cmd
 
 -- Some vim options haven't been ported to nvim but still can be set via [vim.cmd]
@@ -55,8 +55,13 @@ vim.cmd([[
   set whichwrap+=<,>,[,],h,l
 
   let g:vimtex_view_method = 'zathura'
-  " needs to be set, to prevent neovim setting .tex filetype to plaintex
-  let g:tex_flavor = "latex"
+
+  let g:copilot_filetypes = {
+      \ 'rust': v:false,
+      \ 'cpp': v:false,
+      \ 'c': v:false,
+      \ 'vhdl': v:false,
+  \ }
 ]])
 
 vim.notify = require('notify')

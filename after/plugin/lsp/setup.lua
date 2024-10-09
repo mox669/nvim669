@@ -44,6 +44,7 @@ require('mason-lspconfig').setup({
     'gopls',
     'rust_analyzer',
     'taplo',
+    'basedpyright',
   },
 })
 
@@ -105,9 +106,9 @@ require('mason-lspconfig').setup_handlers({
   ['taplo'] = function()
     lspconfig.taplo.setup({})
   end,
-  ['tsserver'] = function()
-    lspconfig.tsserver.setup({})
-  end,
+  -- ['tsserver'] = function()
+  --   lspconfig.tsserver.setup({})
+  -- end,
   ['matlab_ls'] = function()
     lspconfig.matlab_ls.setup({
       root_dir = function()
@@ -119,7 +120,16 @@ require('mason-lspconfig').setup_handlers({
       },
     })
   end,
-  ['texlab'] = function()
-    lspconfig.texlab.setup({})
+  ['mesonlsp'] = function()
+    lspconfig.mesonlsp.setup({})
+  end,
+  ['cmake'] = function()
+    lspconfig.cmake.setup({})
+  end,
+  ['basedpyright'] = function()
+    lspconfig.basedpyright.setup({})
+  end,
+  ['vhdl_ls'] = function()
+    lspconfig.vhdl_ls.setup({})
   end,
 })

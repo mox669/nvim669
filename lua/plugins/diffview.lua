@@ -1,6 +1,6 @@
 --------
--- formatter configuration
--- Source: https://github.com/lewis6991/gitsigns.nvim
+-- diffview configuration
+-- Source: https://github.com/sindrets/diffview.nvim
 --------
 
 return {

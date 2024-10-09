@@ -45,6 +45,9 @@ vim.cmd([[
       highlight DiagnosticVirtualTextWarn                            guifg=#fc851e gui=bold
       highlight DiagnosticSignInfo                     guibg=#181818
       highlight DiagnosticSignHint                     guibg=#181818
+      highlight GitSignsAdd guibg=#181818
+      highlight GitSignsChange guibg=#181818
+      highlight GitSignsDelete guibg=#181818
       highlight NotifyBackground                       guibg=#0b0b0b
       highlight @neorg.tags.ranged_verbatim.code_block guibg=#202020
   endfunction
@@ -54,7 +57,7 @@ vim.cmd([[
     au ColorScheme * call Highlights()
   augroup END
   set background=dark
-  colorscheme biscuit
+      colorscheme biscuit
 ]])
 
 vim.fn.sign_define(

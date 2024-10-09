@@ -20,7 +20,7 @@ return {
   },
 
   -- colorschemes
-  -- use({ 'mox669/fogbell.vim', branch = 'mox' })
+  { 'acarapetis/vim-colors-github' },
   {
     'Biscuit-Colorscheme/nvim',
     branch = 'main',
@@ -94,6 +94,10 @@ return {
         { desc = 'Open / close tagbar (ctags)' }
       )
     end,
+  },
+  {
+    'dhruvasagar/vim-table-mode',
+    branch = 'master',
   },
   {
     'ThePrimeagen/harpoon',
