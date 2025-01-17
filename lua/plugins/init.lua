@@ -7,12 +7,12 @@ return {
   },
   {
     'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('ibl').setup({
-        indent = { char = '▏' },
-        scope = { enabled = false },
-      })
-    end,
+    main = 'ibl',
+    opts = {
+      indent = {
+        char = '▏',
+      },
+    },
   },
   {
     'j-hui/fidget.nvim',
@@ -20,7 +20,6 @@ return {
   },
 
   -- colorschemes
-  { 'acarapetis/vim-colors-github' },
   {
     'Biscuit-Colorscheme/nvim',
     branch = 'main',
@@ -77,14 +76,6 @@ return {
     end,
   },
   {
-    'preservim/vimux',
-    lazy = false,
-    keys = {
-      { '<Leader>tt', '<CMD>VimuxOpenRunner<CR>' },
-      { '<Leader>vp', '<CMD>VimuxPromptCommand<CR>' },
-    },
-  },
-  {
     'preservim/tagbar',
     config = function()
       vim.keymap.set(
@@ -99,16 +90,7 @@ return {
     'dhruvasagar/vim-table-mode',
     branch = 'master',
   },
-  {
-    'ThePrimeagen/harpoon',
-    branch = 'harpoon2',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    config = function()
-      require('harpoon').setup()
-    end,
-  },
+
   {
     'donRaphaco/neotex',
     file = { 'tex' },

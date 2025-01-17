@@ -13,7 +13,7 @@ return {
       '<Leader>ps',
       function()
         require('telescope.builtin').live_grep(
-          require('telescope.themes').get_dropdown({})
+          require('telescope.themes').get_ivy({})
         )
       end,
     },

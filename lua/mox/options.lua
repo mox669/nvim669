@@ -30,7 +30,7 @@ local options = {
   number = true, -- set numbered lines
   relativenumber = true, -- set relative numbered lines
   numberwidth = 1, -- set number column width to 2 (default 4)
-  signcolumn = 'yes:3', -- always show the sign column, width=1
+  signcolumn = 'yes:2', -- always show the sign column, width=1
   colorcolumn = '80', --sets a vertical color column at width=80
   wrap = false, -- toggle word wrap
   scrolloff = 999,
@@ -56,6 +56,7 @@ vim.cmd([[
 
   let g:vimtex_view_method = 'zathura'
 
+  " disable copilot on specified filetypes
   let g:copilot_filetypes = {
       \ 'rust': v:false,
       \ 'cpp': v:false,

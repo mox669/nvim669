@@ -12,27 +12,27 @@ function M.table_print(tbl, indent)
   if not indent then
     indent = 0
   end
-  local toprint = string.rep(' ', indent) .. '{\r\n'
+  local to_print = string.rep(' ', indent) .. '{\r\n'
   indent = indent + 2
   for k, v in pairs(tbl) do
-    toprint = toprint .. string.rep(' ', indent)
+    to_print = to_print .. string.rep(' ', indent)
     if type(k) == 'number' then
-      toprint = toprint .. '[' .. k .. '] = '
+      to_print = to_print .. '[' .. k .. '] = '
     elseif type(k) == 'string' then
-      toprint = toprint .. k .. '= '
+      to_print = to_print .. k .. '= '
     end
     if type(v) == 'number' then
-      toprint = toprint .. v .. ',\r\n'
+      to_print = to_print .. v .. ',\r\n'
     elseif type(v) == 'string' then
-      toprint = toprint .. '"' .. v .. '",\r\n'
+      to_print = to_print .. '"' .. v .. '",\r\n'
     elseif type(v) == 'table' then
-      toprint = toprint .. M.table_print(v, indent + 2) .. ',\r\n'
+      to_print = to_print .. M.table_print(v, indent + 2) .. ',\r\n'
     else
-      toprint = toprint .. '"' .. tostring(v) .. '",\r\n'
+      to_print = to_print .. '"' .. tostring(v) .. '",\r\n'
     end
   end
-  toprint = toprint .. string.rep(' ', indent - 2) .. '}'
-  return toprint
+  to_print = to_print .. string.rep(' ', indent - 2) .. '}'
+  return to_print
 end
 
 return M

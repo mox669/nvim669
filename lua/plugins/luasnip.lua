@@ -59,11 +59,29 @@ return {
     ls.add_snippets('all', {
       s(
         'todo',
-        fmt([[{} {} mox669: {}]], {
+        fmt([[{} {} olek: {}]], {
           c(1, {
             t('TODO '),
             t('FIXME '),
             t('TODONT '),
+            t('NOTE '),
+          }),
+          f(function()
+            return os.date('%D-%H:%M')
+          end),
+          i(2, 'message'),
+        })
+      ),
+    })
+
+    ls.add_snippets('cpp', {
+      s(
+        'todo',
+        fmt([[// {} {} olek: {}]], {
+          c(1, {
+            t('TODO '),
+            t('FIXME '),
+            t('CHANGEME '),
             t('NOTE '),
           }),
           f(function()
