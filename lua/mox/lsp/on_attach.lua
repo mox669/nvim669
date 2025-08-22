@@ -21,10 +21,6 @@ end
 
 return function(client, bufnr)
   buf_set_keymaps(bufnr)
-  if client.config.name == 'clangd' then
-    require('clangd_extensions.inlay_hints').setup_autocmd()
-    require('clangd_extensions.inlay_hints').set_inlay_hints()
-  end
   if client.config.flags then
     client.config.flags.allow_incremental_sync = true
   end

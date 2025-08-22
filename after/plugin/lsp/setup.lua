@@ -39,7 +39,7 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     'lua_ls',
     'clangd',
-    'bashls',
+    -- 'bashls',
     'yamlls',
     'gopls',
     'rust_analyzer',

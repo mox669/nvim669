@@ -2,10 +2,6 @@ return {
   -----
   -- UI
   {
-    'mox669/tmuxline.vim',
-    branch = 'custom-seperator',
-  },
-  {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     opts = {
@@ -102,7 +98,10 @@ return {
 
   ------
   -- LSP
-  'williamboman/mason-lspconfig.nvim',
+  {
+    'williamboman/mason-lspconfig.nvim',
+    version = '^1.0.0',
+  },
   'neovim/nvim-lspconfig',
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-path',
