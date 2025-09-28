@@ -54,4 +54,9 @@ return {
       })
     end,
   },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    version = '^1.0.0',
+  },
+  'rshkarin/mason-nvim-lint',
 }

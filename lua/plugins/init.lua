@@ -98,10 +98,6 @@ return {
 
   ------
   -- LSP
-  {
-    'williamboman/mason-lspconfig.nvim',
-    version = '^1.0.0',
-  },
   'neovim/nvim-lspconfig',
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-path',

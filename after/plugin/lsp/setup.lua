@@ -1,8 +1,3 @@
-local ok, lspconfig = pcall(require, 'lspconfig')
-if not ok then
-  return
-end
-
 local util = require('lspconfig.util')
 local cmp_lsp = require('cmp_nvim_lsp')
 
@@ -34,12 +29,15 @@ util.on_setup = util.add_hook_after(util.on_setup, function(config)
   )
 end)
 
+-- Language Server
+-- For a list of supported server visit
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 require('mason-lspconfig').setup({
   -- configure, which server should be ensured to be installed
   ensure_installed = {
     'lua_ls',
     'clangd',
-    -- 'bashls',
+    'bashls',
     'yamlls',
     'gopls',
     'rust_analyzer',
@@ -48,88 +46,77 @@ require('mason-lspconfig').setup({
   },
 })
 
-require('mason-lspconfig').setup_handlers({
-  -- configure your lsp servers here
-  ['lua_ls'] = function()
-    lspconfig.lua_ls.setup({
-      settings = {
-        Lua = {
-          format = {
-            enable = false,
-          },
-          hint = {
-            enable = true,
-            arrayIndex = 'Auto', -- "Enable", "Auto", "Disable"
-            await = true,
-            paramName = 'Literal', -- "All", "Literal", "Disable"
-            paramType = true,
-            semicolon = 'Disable', -- "All", "SameLine", "Disable"
-            setType = true,
-          },
-          diagnostics = {
-            globals = { 'P', 'vim', 'use' },
-          },
-          workspace = {
-            library = {
-              [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-              [vim.fn.stdpath('config') .. '/lua'] = true,
-            },
-          },
-          telemetry = {
-            enable = false,
-          },
+-- Linter
+-- For a list of supported linters, visit
+-- https://github.com/mfussenegger/nvim-lint
+require('mason-nvim-lint').setup({
+  -- configure, which server should be ensured to be installed
+  ensure_installed = {
+    'markdownlint',
+  },
+  automatic_installation = false,
+})
+
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      format = {
+        enable = false,
+      },
+      hint = {
+        enable = true,
+        arrayIndex = 'Auto', -- "Enable", "Auto", "Disable"
+        await = true,
+        paramName = 'Literal', -- "All", "Literal", "Disable"
+        paramType = true,
+        semicolon = 'Disable', -- "All", "SameLine", "Disable"
+        setType = true,
+      },
+      diagnostics = {
+        globals = { 'P', 'vim', 'use' },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.stdpath('config') .. '/lua'] = true,
         },
       },
-    })
-  end,
-  ['clangd'] = function()
-    lspconfig.clangd.setup({
-      cmd = {
-        'clangd',
-        '--offset-encoding=utf-8',
+      telemetry = {
+        enable = false,
       },
-    })
-  end,
-  ['yamlls'] = function()
-    lspconfig.yamlls.setup({
-      format = {
-        enable = true,
-      },
-    })
-  end,
-  ['gopls'] = function()
-    lspconfig.gopls.setup({})
-  end,
-  ['bashls'] = function()
-    lspconfig.bashls.setup({})
-  end,
-  ['taplo'] = function()
-    lspconfig.taplo.setup({})
-  end,
-  -- ['tsserver'] = function()
-  --   lspconfig.tsserver.setup({})
-  -- end,
-  ['matlab_ls'] = function()
-    lspconfig.matlab_ls.setup({
-      root_dir = function()
-        return '/home/mox/.local/dev/mdtg/matlab'
-      end,
-      MATLAB = {
-        installPath = '/home/mox/.local/share/matlab/bin',
-        telemetry = false,
-      },
-    })
-  end,
-  ['mesonlsp'] = function()
-    lspconfig.mesonlsp.setup({})
-  end,
-  ['cmake'] = function()
-    lspconfig.cmake.setup({})
-  end,
-  ['basedpyright'] = function()
-    lspconfig.basedpyright.setup({})
-  end,
-  ['vhdl_ls'] = function()
-    lspconfig.vhdl_ls.setup({})
-  end,
+    },
+  },
 })
+vim.lsp.config('clangd', {
+  cmd = {
+    'clangd',
+    '--offset-encoding=utf-8',
+    '--clang-tidy',
+    '--enable-config',
+  },
+})
+vim.lsp.config('yamlls', {
+  format = {
+    enable = true,
+  },
+})
+vim.lsp.config('gopls', {})
+vim.lsp.config('bashls', {})
+vim.lsp.config('taplo', {})
+--   vim.lsp.config('tsserver', {})
+vim.lsp.config('matlab_ls', {
+  root_dir = function()
+    return '/home/mox/.local/dev/mdtg/matlab'
+  end,
+  MATLAB = {
+    installPath = '/home/mox/.local/share/matlab/bin',
+    telemetry = false,
+  },
+})
+vim.lsp.config('mesonlsp', {})
+vim.lsp.config('cmake', {})
+vim.lsp.config('basedpyright', {})
+vim.lsp.config('vhdl_ls', {})
+-- vim.lsp.config('markdown', {})
+
+vim.lsp.enable(require('mason-lspconfig').get_installed_servers())
