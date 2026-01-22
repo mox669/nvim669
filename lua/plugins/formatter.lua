@@ -33,9 +33,9 @@ return {
           typescript = {
             require('formatter.filetypes.typescript').biome,
           },
-          -- yaml = {
-          --   require('formatter.filetypes.yaml').prettier,
-          -- },
+          yaml = {
+            require('formatter.filetypes.yaml').prettier,
+          },
           html = {
             require('formatter.filetypes.html').prettier,
           },

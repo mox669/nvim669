@@ -84,7 +84,7 @@ vim.lsp.enable('ccls')
 
 vim.lsp.config('yamlls', {
   format = {
-    enable = true,
+    enable = false,
   },
 })
 vim.lsp.enable('yamlls')
