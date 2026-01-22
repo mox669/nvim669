@@ -22,3 +22,4 @@ require('lazy').setup('plugins', {
 
 require('mox.ui')
 require('mox.options')
+require('mox.lsp')

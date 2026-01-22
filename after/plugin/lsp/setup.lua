@@ -1,48 +1,24 @@
-local util = require('lspconfig.util')
-local cmp_lsp = require('cmp_nvim_lsp')
-
-local function create_capabilities()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  vim.list_extend(
-    capabilities.textDocument.completion.completionItem.resolveSupport.properties,
-    {
-      'documentation',
-      'detail',
-      'additionalTextEdits',
-    }
-  )
-  return cmp_lsp.default_capabilities(capabilities)
-end
-
-util.on_setup = util.add_hook_after(util.on_setup, function(config)
-  if config.on_attach then
-    config.on_attach =
-      util.add_hook_after(config.on_attach, require('mox.lsp.on_attach'))
-  else
-    config.on_attach = require('mox.lsp.on_attach')
-  end
-  config.capabilities = vim.tbl_deep_extend(
-    'force',
-    create_capabilities(),
-    config.capabilities or {}
-  )
-end)
-
--- Language Server
--- For a list of supported server visit
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 require('mason-lspconfig').setup({
-  -- configure, which server should be ensured to be installed
   ensure_installed = {
-    'lua_ls',
-    'clangd',
+    'basedpyright',
     'bashls',
+    'jsonls',
+    'ginko_ls',
+    'gopls',
+    'lua_ls',
+    'rust_analyzer',
+    'taplo',
     'yamlls',
+  },
+
+  automatic_enable = {
+    'basedpyright',
+    'bashls',
+    'jsonls',
+    'ginko_ls',
     'gopls',
     'rust_analyzer',
     'taplo',
-    'basedpyright',
   },
 })
 
@@ -87,36 +63,30 @@ vim.lsp.config('lua_ls', {
     },
   },
 })
+vim.lsp.enable('lua_ls')
+
 vim.lsp.config('clangd', {
   cmd = {
     'clangd',
     '--offset-encoding=utf-8',
-    '--clang-tidy',
-    '--enable-config',
   },
 })
+vim.lsp.enable('clangd')
+-- vim.lsp.config('ccls', {
+--   init_options = {
+--     cache = { directory = '/home/mox/.cache/ccls' },
+--     compilationDatabaseDirectory = '.',
+--     clang = {
+--       extraArgs = { '-std=c++23' },
+--     },
+--     index = { threads = 4 },
+--   },
+-- })
+-- vim.lsp.enable('ccls')
+
 vim.lsp.config('yamlls', {
   format = {
     enable = true,
   },
 })
-vim.lsp.config('gopls', {})
-vim.lsp.config('bashls', {})
-vim.lsp.config('taplo', {})
---   vim.lsp.config('tsserver', {})
-vim.lsp.config('matlab_ls', {
-  root_dir = function()
-    return '/home/mox/.local/dev/mdtg/matlab'
-  end,
-  MATLAB = {
-    installPath = '/home/mox/.local/share/matlab/bin',
-    telemetry = false,
-  },
-})
-vim.lsp.config('mesonlsp', {})
-vim.lsp.config('cmake', {})
-vim.lsp.config('basedpyright', {})
-vim.lsp.config('vhdl_ls', {})
--- vim.lsp.config('markdown', {})
-
-vim.lsp.enable(require('mason-lspconfig').get_installed_servers())
+vim.lsp.enable('yamlls')

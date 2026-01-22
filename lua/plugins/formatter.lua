@@ -18,30 +18,33 @@ return {
           -- c = {
           --   require('formatter.filetypes.c').clangformat,
           -- },
-          cpp = {
-            require('formatter.filetypes.cpp').clangformat,
+          -- cpp = {
+          --   require('formatter.filetypes.cpp').clangformat,
+          -- },
+          json = {
+            require('formatter.filetypes.json').clangformat,
           },
           javascript = {
             require('formatter.filetypes.javascript').biome,
           },
-          rust = {
-            require('formatter.filetypes.rust').rustfmt,
-          },
+          -- rust = {
+          --   require('formatter.filetypes.rust').rustfmt,
+          -- },
           typescript = {
             require('formatter.filetypes.typescript').biome,
           },
-          yaml = {
-            require('formatter.filetypes.yaml').yamlls,
-          },
+          -- yaml = {
+          --   require('formatter.filetypes.yaml').prettier,
+          -- },
           html = {
             require('formatter.filetypes.html').prettier,
           },
           python = {
             require('formatter.filetypes.python').autopep8,
           },
-          -- go = {
-          --   require('formatter.filetypes.go').gofmt,
-          -- },
+          go = {
+            require('formatter.filetypes.go').gofmt,
+          },
           tex = {
             require('formatter.filetypes.tex').latexindent,
           },

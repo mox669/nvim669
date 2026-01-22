@@ -2,6 +2,9 @@ return {
   -----
   -- UI
   {
+    'edkolev/tmuxline.vim',
+  },
+  {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     opts = {

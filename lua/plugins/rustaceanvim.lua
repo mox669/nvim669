@@ -6,11 +6,8 @@
 return {
   'mrcjkb/rustaceanvim',
   config = function()
-    local on_attach = require('mox.lsp.on_attach')
-
     vim.g.rustaceanvim = {
       server = {
-        on_attach = on_attach,
         default_settings = {
           cargo = {
             allFeatures = true,
