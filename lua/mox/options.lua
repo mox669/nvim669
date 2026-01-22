@@ -30,7 +30,7 @@ local options = {
   number = true, -- set numbered lines
   relativenumber = true, -- set relative numbered lines
   numberwidth = 1, -- set number column width to 2 (default 4)
-  signcolumn = 'yes:2', -- always show the sign column, width=1
+  signcolumn = 'yes:3', -- always show the sign column, width=1
   colorcolumn = '80', --sets a vertical color column at width=80
   wrap = false, -- toggle word wrap
   scrolloff = 999,
@@ -63,9 +63,15 @@ vim.cmd([[
       \ 'c': v:false,
       \ 'vhdl': v:false,
   \ }
+
+  " cursor options
   set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
   \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
   \,sm:block-blinkwait175-blinkoff150-blinkon175
+
+  " enable undercurl
+  let &t_Cs = "\e[4:3m"
+  let &t_Ce = "\e[4:0m"
 ]])
 
 vim.notify = require('notify')

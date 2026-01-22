@@ -1,3 +1,12 @@
+require('mason-nvim-lint').setup({
+  -- configure, which server should be ensured to be installed
+  ensure_installed = {
+    'markdownlint',
+    'yamllint',
+  },
+  automatic_installation = false,
+})
+
 require('mason-lspconfig').setup({
   ensure_installed = {
     'basedpyright',
@@ -20,17 +29,6 @@ require('mason-lspconfig').setup({
     'rust_analyzer',
     'taplo',
   },
-})
-
--- Linter
--- For a list of supported linters, visit
--- https://github.com/mfussenegger/nvim-lint
-require('mason-nvim-lint').setup({
-  -- configure, which server should be ensured to be installed
-  ensure_installed = {
-    'markdownlint',
-  },
-  automatic_installation = false,
 })
 
 vim.lsp.config('lua_ls', {

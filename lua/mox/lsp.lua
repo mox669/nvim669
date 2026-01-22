@@ -23,12 +23,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     if client:supports_method('textDocument/definition') then
-      vim.keymap.set(
-        'n',
-        'gd',
-        '<CMD>lua vim.lsp.buf.definition()<CR>',
-        bufopts
-      )
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     end
     if client:supports_method('textDocument/diagnostic') then
       vim.keymap.set('n', '<Leader>di', vim.diagnostic.open_float)
@@ -45,9 +40,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if client:supports_method('textDocument/rename') then
       vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
     end
-    if client:supports_method('textDocument/signatureHelp') then
-      vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-    end
+    -- if client:supports_method('textDocument/signatureHelp') then
+    -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+    -- end
     if client:supports_method('textDocument/typeDefinition') then
       vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, bufopts)
     end
@@ -69,6 +64,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       })
     end
 
+    -- extend capabilities with cmp.capabilities
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
     vim.list_extend(capabilities, cmp.default_capabilities())

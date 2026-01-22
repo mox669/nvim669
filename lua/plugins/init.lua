@@ -11,6 +11,9 @@ return {
       indent = {
         char = '▏',
       },
+      scope = {
+        enabled = false,
+      },
     },
   },
   {
@@ -52,13 +55,13 @@ return {
       })
     end,
   },
-  {
-    'github/copilot.vim',
-    lazy = false,
-    keys = {
-      { '<M-;>', 'copilot#Accept("")', 'i', { silent = true, expr = true } },
-    },
-  },
+  -- {
+  --   'github/copilot.vim',
+  --   lazy = false,
+  --   keys = {
+  --     { '<M-;>', 'copilot#Accept("")', 'i', { silent = true, expr = true } },
+  --   },
+  -- },
   {
     'stevearc/oil.nvim',
     config = function()

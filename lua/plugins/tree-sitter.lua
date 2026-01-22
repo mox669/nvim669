@@ -9,10 +9,20 @@ return {
     require('nvim-treesitter.configs').setup({
       -- A list of parser names, or "all"
       ensure_installed = {
-        'lua',
         'bash',
+        'bitbake',
+        'c',
         'comment',
+        'cpp',
+        'devicetree',
+        'json',
+        'go',
+        'lua',
+        'python',
+        'meson',
         'rust',
+        'toml',
+        'yaml',
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
