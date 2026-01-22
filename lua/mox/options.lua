@@ -52,6 +52,8 @@ vim.cmd([[
   set wildignore+=*.pyc
   set wildignore+=*.git
   set wildignore+=**/node_modules/*
+  set wildignore+=**/.cache/*
+  set wildignore+=**/.ccls-cache/*
   set whichwrap+=<,>,[,],h,l
 
   let g:vimtex_view_method = 'zathura'
