@@ -73,7 +73,7 @@ vim.lsp.enable('lua_ls')
 vim.lsp.config('ccls', {
   init_options = {
     cache = { directory = '/home/mox/.cache/ccls' },
-    compilationDatabaseDirectory = '.',
+    compilationDatabaseDirectory = './build',
     clang = {
       extraArgs = { '-std=c++23' },
     },
