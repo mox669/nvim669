@@ -7,7 +7,17 @@ local err = '#e5412b'
 local warn = '#fc851e'
 
 vim.opt.background = 'dark'
-vim.cmd([[ colorscheme biscuit]])
+vim.cmd([[
+    colorscheme biscuit
+
+    " tmuxline configs
+    let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '',
+    \ 'right' : '',
+    \ 'right_alt' : '',
+    \ 'space' : ' '}
+]])
 
 -- Diagnostic
 hi('DiagnosticSignError', { fg = err, bg = bg })

@@ -55,13 +55,6 @@ return {
       })
     end,
   },
-  -- {
-  --   'github/copilot.vim',
-  --   lazy = false,
-  --   keys = {
-  --     { '<M-;>', 'copilot#Accept("")', 'i', { silent = true, expr = true } },
-  --   },
-  -- },
   {
     'stevearc/oil.nvim',
     config = function()
@@ -77,30 +70,6 @@ return {
       )
     end,
   },
-  {
-    'preservim/tagbar',
-    config = function()
-      vim.keymap.set(
-        'n',
-        '<Leader>t',
-        '<CMD>TagbarToggle<CR>',
-        { desc = 'Open / close tagbar (ctags)' }
-      )
-    end,
-  },
-  {
-    'dhruvasagar/vim-table-mode',
-    branch = 'master',
-  },
-
-  {
-    'donRaphaco/neotex',
-    file = { 'tex' },
-  },
-
-  ------
-  -- GIT
-  'tpope/vim-fugitive',
 
   ------
   -- LSP
@@ -112,7 +81,6 @@ return {
   'hrsh7th/cmp-cmdline',
   'rafamadriz/friendly-snippets',
   'saadparwaiz1/cmp_luasnip',
-  'p00f/clangd_extensions.nvim',
   {
     'ray-x/go.nvim',
     config = true,
