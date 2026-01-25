@@ -14,6 +14,7 @@ return {
       go = { 'gofmt' },
       json = { 'clangformat' },
       lua = { 'stylua' },
+      meson = { 'meson' },
       python = { 'black' },
       yaml = { 'prettier' },
       ['_'] = { 'trim_whitespace', lsp_format = 'prefer' },

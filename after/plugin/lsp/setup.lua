@@ -15,6 +15,7 @@ require('mason-lspconfig').setup({
     'ginko_ls',
     'gopls',
     'lua_ls',
+    'mesonlsp',
     'rust_analyzer',
     'taplo',
     'yamlls',
@@ -63,24 +64,24 @@ vim.lsp.config('lua_ls', {
 })
 vim.lsp.enable('lua_ls')
 
--- vim.lsp.config('clangd', {
---   cmd = {
---     'clangd',
---     '--offset-encoding=utf-8',
---   },
--- })
--- vim.lsp.enable('clangd')
-vim.lsp.config('ccls', {
-  init_options = {
-    cache = { directory = '/home/mox/.cache/ccls' },
-    compilationDatabaseDirectory = './build',
-    clang = {
-      extraArgs = { '-std=c++23' },
-    },
-    index = { threads = 4 },
+vim.lsp.config('clangd', {
+  cmd = {
+    'clangd',
+    '--offset-encoding=utf-8',
   },
 })
-vim.lsp.enable('ccls')
+vim.lsp.enable('clangd')
+-- vim.lsp.config('ccls', {
+--   init_options = {
+--     cache = { directory = '/home/mox/.cache/ccls' },
+--     compilationDatabaseDirectory = './build',
+--     clang = {
+--       extraArgs = { '-std=c++23' },
+--     },
+--     index = { threads = 4 },
+--   },
+-- })
+-- vim.lsp.enable('ccls')
 
 vim.lsp.config('yamlls', {
   format = {
@@ -88,3 +89,5 @@ vim.lsp.config('yamlls', {
   },
 })
 vim.lsp.enable('yamlls')
+
+vim.lsp.enable('mesonlsp')
